@@ -54,7 +54,6 @@ public class AuthenticationController {
     @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO, Errors errors, HttpServletRequest request, Model model) {
         if (errors.hasErrors()) {
-            errors.rejectValue("errors", "errors.haserrors", "Validation errors present. Please try again.");
             model.addAttribute("title", "Register");
             return "register";
         }
